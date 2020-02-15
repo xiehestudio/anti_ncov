@@ -2,15 +2,11 @@
 
 ## 运行环境
 
--------
-
 ​	运行该程序需要安装`python3`以及`requests`、`lxml`、`cssselect`第三方库（linux环境下可以直接通过pip install xxx安装，其余系统请自行解决）。
 
 
 
 ## 如何使用
-
--------
 
 ​	使用该程序需要提供您的学号，密码以及所处地址，默认情况下，您每次运行该程序便会要求您提供上述信息，但您可以通过直接修改say_goodbye_to_ncov.py中的配置信息来“一劳永逸”，所需填写的个人信息如下:
 
@@ -36,11 +32,9 @@ python say_goodbye_to_ncov.py
 
 ## 自动运行
 
--------
-
 ​	我们还提供了一个自动运行脚本（仅适合linux系统），运行该脚本后，系统会每天6:00自动提交您的健康信息，不用再人工执行，运行该脚本需要系统已经安装python3指令，如果有的系统已经将python指令指向到python3，请手动替换automatic.sh中的python3为python。
 
-PS：`该脚本和say_goodbye_to_ncov.py必须位于同一目录下！！`
+PS：`该脚本和say_goodbye_to_ncov.py必须位于同一目录下，并且需要注意您的say_goodbye_to_ncov.py的运行地址，默认情况下会运行/home目录下的say_goodbye_to_ncov.py，如果您将其放在了其他路径，请手动修改脚本的运行地址！`
 
 
 
