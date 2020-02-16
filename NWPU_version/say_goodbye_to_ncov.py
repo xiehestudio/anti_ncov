@@ -5,9 +5,10 @@
 import requests
 import lxml.html
 import json
+import datetime
 
 login_url = 'https://uis.nwpu.edu.cn/cas/login'
-ncov_url = 'http://yqtb.nwpu.edu.cn/wx/ry/jrsb.jsp'
+ncov_url = 'http://yqtb.nwpu.edu.cn/wx/ry/ry_util.jsp'
 
 def login(session, username, password):
     res = session.get(login_url)
@@ -35,31 +36,33 @@ def login(session, username, password):
     })
 
     # print(res.text)
-    if res.ok:
+    if '账号激活' not in res.text:
         return True
     return False
 
 def post_ncov(session, username, place):
-    res = session.post(ncov_url, {
+    headers = {
+        'Referer': 'http://yqtb.nwpu.edu.cn/wx/ry/jrsb.jsp'
+    }
+    res = session.post(ncov_url, data={
         'actionType': 'addRbxx',
         'userLoginId': username,
-        'tbly': 'sso',
         'szcsbm': 3,
         'szcsmc': place,
-        'radio2': 0,
-        'sfjthb_ms': '',
-        'radio3': 0,
-        'hbjry_ms': '',
-        'radio4': 0,
-        'radio5': 0,
-        'radio6': 0,
-        'ycqk_ms': '',
-        'radio7': 0,
+        'sfjt': 0,
+        'sfjtsm': '',
+        'sfjcry': 0,
+        'sfjcrysm': '',
+        'sfjcqz': 0,
+        'sfyzz': 0,
+        'sfqz': 0,
+        'ycqksm': '',
+        'glqk': 0,
         'glksrq': '',
-        'gljsrq': ''
-    })
-    # print(res.text)
-    if '提交上报信息' in res.text:
+        'gljsrq': '',
+        'tbly': 'sso'
+    }, headers=headers)
+    if  json.loads(res.text)['state'] == 1:
         return True
     return False
 
@@ -85,6 +88,7 @@ if __name__ == '__main__':
     session.headers.update(headers)
     
     if login(session, username, password) and post_ncov(session, username, place):
-        print('学号为{}的同学你好，疫情已成功填报!'.format(username))
+        today = datetime.datetime.now()
+        print('学号为{}的同学你好，{}疫情已成功填报!'.format(username, today.strftime('%Y.%m.%d-%H:%M:%S')))
     else:
         print('填报失败，请检查学号，密码是否输错，或者网络是否连接！！')
