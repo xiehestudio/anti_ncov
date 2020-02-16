@@ -17,3 +17,5 @@
 ​	`6.浙大城市学院		代码地址：https://github.com/lychs1998/ncp-sign-in`
 
 ​	`7.成都大学		代码地址：https://github.com/handsomeWeiye/AutoPunch`
+
+​	`8.浙江大学		代码地址：https://github.com/Tishacy/ZJU-nCov-Hitcarder`
