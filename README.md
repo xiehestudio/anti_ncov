@@ -4,7 +4,7 @@
 
 ## 目前已支持以下高校
 
-​	`1.西北工业大学			代码地址：内置于内仓库的NWPU_version目录下`
+​	`1.西北工业大学			代码地址：内置于本仓库的NWPU_version目录下`
 
 ​	`2.东北大学			代码地址：https://github.com/i-Pear/NEU-Epidemic-Auto-Commit`
 
