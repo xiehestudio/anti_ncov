@@ -21,3 +21,5 @@
 ​	`8.成都大学		代码地址：https://github.com/handsomeWeiye/AutoPunch`
 
 ​	`9.浙江大学		代码地址：https://github.com/Tishacy/ZJU-nCov-Hitcarder`
+
+​	`10.四川师范大学		代码地址：https://github.com/CrazyNutLz/AutoPostReport`
